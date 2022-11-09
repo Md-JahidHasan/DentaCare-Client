@@ -3,6 +3,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import ReviewCard from '../Pages/ServiceDetail/ReviewCard';
 
 const MyReviews = () => {
+    
     // -----------load User------------
     const {user} = useContext(AuthContext);
     // ------load each service review--------
@@ -15,7 +16,7 @@ const MyReviews = () => {
             console.log(myServiceReview);
             setReviews(myServiceReview)
         })
-    }, [])
+    }, [reviews])
     return (
         <div className='grid grid-cols-2 m-6 text-center gap-4'>
                 {

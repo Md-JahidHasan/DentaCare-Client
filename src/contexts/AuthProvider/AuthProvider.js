@@ -7,6 +7,7 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 const AuthProvider = ({children}) => {
+    const [update, setUpdate]=useState(false);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -45,7 +46,9 @@ const AuthProvider = ({children}) => {
         createUser,
         logInUser,
         providerLogIn,
-        logOut
+        logOut,
+        update,
+        setUpdate
     }
     console.log('lodded user',user);
     return (

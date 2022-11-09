@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const AddReview = ({serviceDetail}) => {
-    const {user} = useContext(AuthContext);
+    const {user, setUpdate} = useContext(AuthContext);
+    console.log(user.email);
     const {name, _id, picture} = serviceDetail;
     const handleReviewForm = event =>{
         event.preventDefault();
@@ -34,8 +35,10 @@ const AddReview = ({serviceDetail}) => {
         .then(data=>{
             console.log(data)
             if(data.acknowledged){
+
                 alert('Review added successfully!!')
                 form.reset()
+                // setUpdate(true)
             }
         })
         .catch(error=>console.error(error))
