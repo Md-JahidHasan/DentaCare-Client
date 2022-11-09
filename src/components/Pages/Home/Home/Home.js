@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { PhotoProvider } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import SingleService from '../../Services/SingleService';
 import Appointment from '../Appointment/Appointment';
@@ -11,22 +12,26 @@ const Home = () => {
     console.log(services);
 
     return (
-        <div>
+        <div className='text-center'>
             <Banner></Banner>
             <Appointment></Appointment>
 
         <div className="second-banner">
 
         </div>
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
+        <PhotoProvider>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
             {
                 services.splice(0, 3).map(service=><SingleService
                 key={service._id}
                 service={service}
                 ></SingleService>)
             }
-            <Link to='/services'><button className='btn btn-error '>See All</button></Link>
+            
         </div>
+        
+        </PhotoProvider>
+        <Link className='m-auto' to='/services'><button className='btn btn-error '>See All</button></Link>
         <Contact></Contact>
         </div>
     );

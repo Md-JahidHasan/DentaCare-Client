@@ -32,7 +32,7 @@ const AuthProvider = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser=>{
            
             setUser(currentUser);
-             console.log('lodded user',user);
+             
         });
         return ()=>{
             return unsubscribe();
@@ -46,6 +46,7 @@ const AuthProvider = ({children}) => {
         providerLogIn,
         logOut
     }
+    console.log('lodded user',user);
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

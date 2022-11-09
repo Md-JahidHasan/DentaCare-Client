@@ -1,8 +1,9 @@
 import React from 'react';
+import './Appoinment.css';
 
 const Appointment = () => {
     return (
-        <div className="hero px-8 bg-pink-100">
+        <div className="hero px-8 appoinment">
         <div className="hero-content  flex">
             <div className="text-center w-1/2 p-10 lg:text-right">
                 <h1 className="text-3xl font-bold">Book Your Visit At</h1>
