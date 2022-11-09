@@ -12,14 +12,6 @@ const firebaseConfig = {
   messagingSenderId:process.env.REACT_APP_messagingSenderId,
   appId:process.env.REACT_APP_appId
 };
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDCQftif97645nLYcITrz4D1Sxsk6kq42o",
-//   authDomain: "denta-care.firebaseapp.com",
-//   projectId: "denta-care",
-//   storageBucket: "denta-care.appspot.com",
-//   messagingSenderId: "116703875052",
-//   appId: "1:116703875052:web:ae56ba6df48fa42e993ac9"
-// };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

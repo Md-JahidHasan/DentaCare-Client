@@ -31,10 +31,16 @@ const AddReview = ({serviceDetail}) => {
 
         })
         .then(res=>res.json())
-        .then(data=>console.log(data))
+        .then(data=>{
+            console.log(data)
+            if(data.acknowledged){
+                alert('Review added successfully!!')
+                form.reset()
+            }
+        })
         .catch(error=>console.error(error))
 
-        
+
         console.log(review );
 
     }

@@ -1,5 +1,4 @@
 import './App.css';
-import { firebaseConfig } from './firebase.config';
 import {RouterProvider } from 'react-router-dom';
 import router from './components/Routes/Router';
 import 'react-photo-view/dist/react-photo-view.css';
