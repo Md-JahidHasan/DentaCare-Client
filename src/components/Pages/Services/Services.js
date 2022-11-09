@@ -5,7 +5,6 @@ import SingleService from './SingleService';
 
 const Services = () => {
     const services = useLoaderData()
-    console.log(services);
     return (
         <div className='text-center my-10'>
             <PhotoProvider>

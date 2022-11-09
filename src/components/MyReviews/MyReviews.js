@@ -13,7 +13,7 @@ const MyReviews = () => {
         .then(res=>res.json())
         .then(data=>{
             const myServiceReview = data.filter(singleData=>singleData.email == user?.email);
-            console.log(myServiceReview);
+            // console.log(myServiceReview);
             setReviews(myServiceReview)
         })
     }, [reviews])

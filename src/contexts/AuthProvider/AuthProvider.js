@@ -50,7 +50,7 @@ const AuthProvider = ({children}) => {
         update,
         setUpdate
     }
-    console.log('lodded user',user);
+    // console.log('lodded user',user);
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

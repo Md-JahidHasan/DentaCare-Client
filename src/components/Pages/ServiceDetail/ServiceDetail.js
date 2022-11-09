@@ -13,13 +13,13 @@ const ServiceDetail = () => {
 
     // ------load each service review--------
     const [reviews, setReviews] = useState([]);
-    console.log(reviews);
+    // console.log(reviews);
     useEffect(()=>{
         fetch('http://localhost:5000/reviews')
         .then(res=>res.json())
         .then(data=>{
             const perServiceReview = data.filter(singleData=>singleData.reviewId === _id);
-            console.log(perServiceReview);
+            // console.log(perServiceReview);
             setReviews(perServiceReview)
         })
     }, [])
@@ -40,6 +40,7 @@ const ServiceDetail = () => {
             <div className='grid grid-cols-2 m-6 text-center gap-4'>
                 {
                     reviews?.map(review=><ReviewCard
+                    key={review._id}
                     review={review}
                     ></ReviewCard>)
                 }
