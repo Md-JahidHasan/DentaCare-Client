@@ -5,8 +5,37 @@ const AddReview = ({serviceDetail}) => {
     const {user} = useContext(AuthContext);
     const {name, _id, picture} = serviceDetail;
     const handleReviewForm = event =>{
-        event.preventDefault()
-        console.log(_id );
+        event.preventDefault();
+        const form = event.target;
+        const clientName = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const photoURL = form.photoURL.value;
+        const reviewText = form.review.value;
+        const review = {
+            reviewId: _id,
+            serviceName: name,
+            clientName,
+            email,
+            phone,
+            photoURL,
+            reviewText
+        }
+
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(review)
+
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
+        .catch(error=>console.error(error))
+
+        
+        console.log(review );
 
     }
     return (
@@ -21,7 +50,7 @@ const AddReview = ({serviceDetail}) => {
                     <input type="text" placeholder="Type photo URL" name='photoURL' className="input input-bordered input-info w-full " />
                 </div>
                 <div>
-                    <textarea className="textarea textarea-accent w-4/5 lg:w-3/5 my-4" placeholder="Write Your Review Here"></textarea>
+                    <textarea name='review' className="textarea textarea-accent w-4/5 lg:w-3/5 my-4" placeholder="Write Your Review Here"></textarea>
                 </div>
                 <input className='btn btn-error' type="submit" value="Submit Your Review" />
             </form>
