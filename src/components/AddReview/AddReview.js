@@ -3,7 +3,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const AddReview = ({serviceDetail}) => {
     const {user, setUpdate} = useContext(AuthContext);
-    console.log(user.email);
+    // console.log(user.email);
     const {name, _id, picture} = serviceDetail;
     const handleReviewForm = event =>{
         event.preventDefault();
