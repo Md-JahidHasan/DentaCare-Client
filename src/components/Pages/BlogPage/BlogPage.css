@@ -1,0 +1,13 @@
+.blog-page div h1{
+    background-color: rgb(9, 79, 201);
+    color: azure;
+    font-size: 2rem;
+    margin-top: 30px;
+    padding: 10px 10px 10px 40px;
+
+}
+.blog-page div p{
+    padding: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
