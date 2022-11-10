@@ -1,4 +1,12 @@
-Live Site Link: https://denta-care.web.app
+# Live Site Link: https://denta-care.web.app
+# Features and Funtionalities
+- It is a dentists service review website
+- Client can add and see extra service
+- Clients can post review if he/she login here
+- Client can see see others review
+- Website is fully Authenticated
+- Secured by JWT
+- If user is not login he/she cannot post review and service
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
