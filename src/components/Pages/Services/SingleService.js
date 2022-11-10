@@ -3,7 +3,7 @@ import { PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 
 const SingleService = ({service}) => {
-    const {_id, name, picture} = service;
+    const {_id, name, picture, description, price} = service;
     
     return (
         <div className="card w-96 bg-base-100 shadow-xl m-auto">
@@ -14,7 +14,9 @@ const SingleService = ({service}) => {
             </figure>
             <div className="card-body">
                 <h2 className="card-title h-16">{name}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <p>{description.slice(0, 95)+`...`}</p>
+                <p className='text-start text-blue-600'>Approximate Fee: ${price}</p>
+
                 <div className="card-actions justify-end">
                 <button className="btn btn-primary"><Link to={`/services/${_id}`}>View Details</Link></button>
                 </div>

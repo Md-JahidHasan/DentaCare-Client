@@ -58,11 +58,12 @@ const Login = () => {
                     <div className="form-control mt-6">
                    
                     <input className="btn btn-primary" type="submit" value="Login" />
-                    <button onClick={handleGoogleLogin}>Continue Google</button>
-                    <p>New in DentaCare? Please <Link className='text-error' to='/signup'>Signup</Link></p>
+                    
                     </div>
                     
                 </form>
+                <button className='btn w-4/5 m-auto' onClick={handleGoogleLogin}>Continue with Google</button>
+                    <p className='text-center mb-10 mt-4'>New in DentaCare? Please <Link className='text-error' to='/signup'>Signup</Link></p>
                 </div>
             </div>
             </div>
