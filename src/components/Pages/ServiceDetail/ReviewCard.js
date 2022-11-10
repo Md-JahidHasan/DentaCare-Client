@@ -19,7 +19,7 @@ const ReviewCard = ({review}) => {
                 </div>
                 <p><q>{reviewText}</q></p>
                 <div className="card-actions justify-end">
-                <button className="btn ">ratings</button>
+                
                 </div>
             </div>
         </div>

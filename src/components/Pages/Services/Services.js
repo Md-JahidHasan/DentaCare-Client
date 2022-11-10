@@ -1,9 +1,11 @@
 import React from 'react';
 import { PhotoProvider } from 'react-photo-view';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 import SingleService from './SingleService';
 
 const Services = () => {
+    useTitle('service-dentaCare')
     const services = useLoaderData()
     return (
         <div className='text-center my-10'>

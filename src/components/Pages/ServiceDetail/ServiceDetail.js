@@ -15,7 +15,7 @@ const ServiceDetail = () => {
     const [reviews, setReviews] = useState([]);
     // console.log(reviews);
     useEffect(()=>{
-        fetch('http://localhost:5000/reviews')
+        fetch('http://localhost:5000/service-reviews')
         .then(res=>res.json())
         .then(data=>{
             const perServiceReview = data.filter(singleData=>singleData.reviewId === _id);

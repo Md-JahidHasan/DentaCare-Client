@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PhotoProvider } from 'react-photo-view';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useOutlet } from 'react-router-dom';
+import useTitle from '../../../../hooks/useTitle';
 import SingleService from '../../Services/SingleService';
 import Appointment from '../Appointment/Appointment';
 import Banner from '../Banner/Banner';
@@ -8,6 +9,7 @@ import Contact from '../Contact/Contact';
 
 
 const Home = () => {
+    useTitle('home-dentaCare')
     const services = useLoaderData();
 
     return (

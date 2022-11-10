@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    useTitle('Login')
     const from = location.state?.from?.pathname || "/";
     const {logInUser, providerLogIn} = useContext(AuthContext);
     const handleLogin =(event)=>{
@@ -15,12 +18,28 @@ const Login = () => {
         logInUser(email, password)
         .then(result=>{
             const user = result.user;
-            console.log(user);
+            const currentUser = {email: user.email}
+            console.log(currentUser);
+            // get jwt token
+            fetch('http://localhost:5000/jwt', {
+                method: 'POST',
+                headers:{
+                    'content-type' : 'application/json'
+                },
+                body:JSON.stringify(currentUser)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                localStorage.setItem('dentaCare-token', data.token)
+            })
+            navigate(from, {replace:true})
+            // console.log(user);
         })
         .catch(error=>{
             console.error(error);
         })
-        console.log(email, password);
+        // console.log(email, password);
         
     }
 
@@ -28,6 +47,7 @@ const Login = () => {
         providerLogIn()
         .then((result)=>{
             const user = result.user;
+            
             navigate(from, {replace:true})
         })
         .catch(error=>{
@@ -69,6 +89,7 @@ const Login = () => {
                 <button className='btn w-4/5 m-auto' onClick={handleGoogleLogin}>Continue with Google</button>
                     <p className='text-center mb-10 mt-4'>New in DentaCare? Please <Link className='text-error' to='/signup'>Signup</Link></p>
                 </div>
+                
             </div>
             </div>
         </div>

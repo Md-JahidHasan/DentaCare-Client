@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const AddReview = ({serviceDetail}) => {
+    
     const {user, setUpdate} = useContext(AuthContext);
     // console.log(user.email);
     const {name, _id, picture} = serviceDetail;

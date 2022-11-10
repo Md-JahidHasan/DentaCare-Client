@@ -1,22 +1,34 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import ReviewCard from '../Pages/ServiceDetail/ReviewCard';
 
 const MyReviews = () => {
+    useTitle('dentaCare-review')
     
     // -----------load User------------
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
     // ------load each service review--------
     const [reviews, setReviews] = useState([]);
+    const url = `http://localhost:5000/reviews?email=${user.email}`
     useEffect(()=>{
-        fetch('http://localhost:5000/reviews')
-        .then(res=>res.json())
-        .then(data=>{
-            const myServiceReview = data.filter(singleData=>singleData.email == user?.email);
-            // console.log(myServiceReview);
-            setReviews(myServiceReview)
+        fetch(url, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('dentaCare-token')}`
+            }
         })
-    }, [reviews])
+        .then(res =>{
+            if(res.status===401 || res.status === 403){
+                logOut()
+            }
+            return  res.json()
+        })
+        .then(data => {
+            setReviews(data)
+        })
+        
+    },[user?.email])
+
     return (
         <div className='grid grid-cols-2 m-6 text-center gap-4'>
                 {
