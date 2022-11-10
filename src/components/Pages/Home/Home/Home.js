@@ -30,7 +30,7 @@ const Home = () => {
         </div>
         
         </PhotoProvider>
-        <Link className='m-auto' to='/services'><button className='btn btn-error '>See All</button></Link>
+        <Link className='m-auto' to='/services'><button className='btn btn-error m-8'>See All Services...</button></Link>
         <Contact></Contact>
         </div>
     );
