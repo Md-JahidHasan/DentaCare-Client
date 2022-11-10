@@ -19,7 +19,7 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:()=>fetch('http://localhost:5000/threeservices')
+                loader:()=>fetch('https://eleventh-assignment-server-pi.vercel.app/threeservices')
             },
             {
                 path:'/login',
@@ -33,12 +33,12 @@ const router = createBrowserRouter([
             {
                 path:'/services',
                 element:<Services></Services>,
-                loader:()=>fetch('http://localhost:5000/services')
+                loader:()=>fetch('https://eleventh-assignment-server-pi.vercel.app/services')
             },
             {
                 path:'/services/:id',
                 element:<ServiceDetail></ServiceDetail>,
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=>fetch(`https://eleventh-assignment-server-pi.vercel.app/services/${params.id}`)
             },
             {
                 path:'/addservice',

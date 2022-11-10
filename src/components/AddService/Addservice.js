@@ -1,8 +1,10 @@
 import React from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import useTitle from '../../hooks/useTitle';
 
 const Addservice = () => {
     useTitle('add-service')
+    
     const handleAddService = event =>{
         event.preventDefault();
         const form = event.target;
@@ -19,7 +21,7 @@ const Addservice = () => {
             description,
 
         }
-        fetch('http://localhost:5000/services', {
+        fetch('https://eleventh-assignment-server-pi.vercel.app/services', {
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -30,7 +32,7 @@ const Addservice = () => {
         .then(data=>{
             console.log(data);
             if(data.acknowledged){
-
+                toast('Service Added Successfully!')
                 alert('New Service added successfully!!')
                 form.reset()
                 // setUpdate(true)

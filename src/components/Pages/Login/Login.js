@@ -21,7 +21,7 @@ const Login = () => {
             const currentUser = {email: user.email}
             console.log(currentUser);
             // get jwt token
-            fetch('http://localhost:5000/jwt', {
+            fetch('https://eleventh-assignment-server-pi.vercel.app/jwt', {
                 method: 'POST',
                 headers:{
                     'content-type' : 'application/json'

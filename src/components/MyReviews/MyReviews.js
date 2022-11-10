@@ -10,7 +10,7 @@ const MyReviews = () => {
     const {user, logOut} = useContext(AuthContext);
     // ------load each service review--------
     const [reviews, setReviews] = useState([]);
-    const url = `http://localhost:5000/reviews?email=${user.email}`
+    const url = `https://eleventh-assignment-server-pi.vercel.app/reviews?email=${user.email}`
     useEffect(()=>{
         fetch(url, {
             headers: {

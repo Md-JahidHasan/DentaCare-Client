@@ -10,7 +10,7 @@ const Services = () => {
     return (
         <div className='text-center my-10'>
             <PhotoProvider>
-                <div className='grid grid-cols-1 md:grid-cols-2  gap-4 m-auto'>
+                <div className='grid grid-cols-1 md:grid-cols-2  gap-4 m-20'>
             {
                 services.map(service=><SingleService
                 key={service._id}

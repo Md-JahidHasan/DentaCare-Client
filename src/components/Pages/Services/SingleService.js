@@ -6,7 +6,7 @@ const SingleService = ({service}) => {
     const {_id, name, picture, description, price} = service;
     
     return (
-        <div className="card w-96 bg-base-100 shadow-xl m-auto">
+        <div className="card w-full bg-base-100 shadow-xl m-auto">
             <figure>
                 <PhotoView src={picture}>
                     <img src={picture} width='full' height='200px' alt="Shoes" />
